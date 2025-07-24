@@ -55,4 +55,18 @@ const formatTimeAgo = (date) => {
   return `${days} day${days > 1 ? "s" : ""} ago`;
 };
 
+export const AdVideoCard = ({ info }) => {
+  return (
+    <div className="relative">
+      <span className="absolute right-2 bg-gray-800 text-white text-xs font-semibold px-2 py-1 rounded">
+        Sponsored
+      </span>
+      <VideoCard info={info} />
+      <p className="text-gray-500 text-xs italic px-15">
+        Ad • Promoted Content
+      </p>
+    </div>
+  );
+};
+
 export default VideoCard;
