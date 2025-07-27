@@ -3,6 +3,7 @@ import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
+import { Link } from "react-router";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -83,7 +84,7 @@ const Head = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
-            onBlur={() => setShowSuggestions(false)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           />
           <button className="border border-gray-400 px-4 py-2 rounded-r-full bg-gray-100">
             <i className="fa fa-search" style={{ fontSize: "20px" }}></i>
@@ -93,13 +94,15 @@ const Head = () => {
           <div className="absolute bg-white border border-gray-200 shadow-xl rounded-xl w-1/2 m-1">
             <ul>
               {suggestions.map((s, i) => (
-                <li
+                <Link
+                  to={"/results?search_query=" + encodeURIComponent(s)}
                   key={i}
-                  className="px-2 py-2 m-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer flex items-center gap-2"
                 >
-                  <i className="fa fa-search"></i>
-                  {s}
-                </li>
+                  <li className="px-2 py-2 m-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer flex items-center gap-2">
+                    <i className="fa fa-search"></i>
+                    {s}
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>
