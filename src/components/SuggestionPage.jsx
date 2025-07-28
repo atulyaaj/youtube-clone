@@ -21,8 +21,9 @@ const SuggestionPage = () => {
     // console.log(json.items);
     setVideos(json.items);
   };
+
   return (
-    <div className="">
+    <div>
       {videos &&
         videos.map((video) => (
           <Link key={video.id.videoId} to={"/watch?v=" + video.id.videoId}>

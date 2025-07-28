@@ -68,13 +68,13 @@ const Head = () => {
           alt="menu"
           src="https://www.svgrepo.com/show/506800/burger-menu.svg"
         />
-        <a href="/">
+        <Link href="/">
           <img
             className="h-8 mx-2"
             alt="youtube-logo"
             src="https://upload.wikimedia.org/wikipedia/commons/3/34/YouTube_logo_%282017%29.png"
           />
-        </a>
+        </Link>
       </div>
       <div className="col-span-10 relative">
         <div>

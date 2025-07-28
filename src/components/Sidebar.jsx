@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
@@ -13,6 +12,9 @@ const Sidebar = () => {
       <ul>
         <li>
           <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/demo">Demo</Link>
         </li>
         <li>Shorts</li>
         <li>Videos</li>
